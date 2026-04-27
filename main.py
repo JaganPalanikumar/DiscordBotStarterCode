@@ -3,4 +3,3 @@ import bot
 
 if __name__ == '__main__':
     #TODO (Run Discord Bot)
-    bot.run_discord_bot()
