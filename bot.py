@@ -15,7 +15,14 @@ def load_env_file(file_path=".env"):
             if not line or line.startswith("#") or "=" not in line:
                 continue
             key, value = line.split("=", 1)
-            os.environ.setdefault(key.strip(), value.strip())
+            key = key.strip()
+            value = value.strip()
+            # Support optional quoted .env values, e.g. TOKEN="abc123".
+            if (value.startswith('"') and value.endswith('"')) or (
+                value.startswith("'") and value.endswith("'")
+            ):
+                value = value[1:-1]
+            os.environ.setdefault(key, value)
 
 
 # Initialize Discord client settings, register events, and start the bot session.

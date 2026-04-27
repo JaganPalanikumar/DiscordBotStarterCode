@@ -24,4 +24,3 @@ Type '/tlangs' to see all current available languages!""")
 
 
     #TODO - Parse user message
-    
